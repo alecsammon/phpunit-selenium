@@ -1,4 +1,5 @@
 <?php
+
 /**
  * PHPUnit
  *
@@ -44,7 +45,7 @@
 
 /**
  * Moves the mouse pointer.
- * 
+ *
  * @author     Giorgio Sironi <info@giorgiosironi.com>
  * @package    PHPUnit_Selenium
  * @copyright  2010-2013 Sebastian Bergmann <sebastian@phpunit.de>
@@ -53,18 +54,17 @@
  * @link       http://www.phpunit.de/
  * @since      Class available since Release 1.2.8
  */
-class PHPUnit_Extensions_Selenium2TestCase_SessionCommand_MoveTo
-    extends PHPUnit_Extensions_Selenium2TestCase_Command
+class PHPUnit_Extensions_Selenium2TestCase_SessionCommand_MoveTo extends PHPUnit_Extensions_Selenium2TestCase_Command
 {
-    public function __construct($element,
-                                PHPUnit_Extensions_Selenium2TestCase_URL $url)
+
+    public function __construct($element, PHPUnit_Extensions_Selenium2TestCase_URL $url)
     {
         if ($element instanceof PHPUnit_Extensions_Selenium2TestCase_Element) {
             $jsonParameters = array(
                 'element' => $element->getId()
             );
         } else {
-            throw new PHPUnit_Extensions_Selenium2TestCase_Exception('Only moving over an element is supported. Please pass a PHPUnit_Extensions_Selenium2TestCase_Element instance.');
+            $jsonParameters = $element;
         }
 
         parent::__construct($jsonParameters, $url);
