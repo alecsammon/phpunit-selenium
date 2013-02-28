@@ -97,7 +97,7 @@ abstract class PHPUnit_Extensions_Selenium2TestCase extends PHPUnit_Framework_Te
     /**
      * @var PHPUnit_Extensions_Selenium2TestCase_Session
      */
-    private $session;
+    protected $session;
 
     /**
      * @var array
