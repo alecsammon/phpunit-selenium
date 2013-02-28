@@ -70,8 +70,8 @@ class PHPUnit_Extensions_Selenium2TestCase_SessionStrategy_Shared
     {
         if ($this->lastTestWasNotSuccessful) {
             if ($this->session !== NULL) {
-                $this->session->stop();
-                $this->session = NULL;
+                //$this->session->stop();
+                //$this->session = NULL;
             }
             $this->lastTestWasNotSuccessful = FALSE;
         }
