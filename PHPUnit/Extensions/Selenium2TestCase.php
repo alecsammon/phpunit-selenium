@@ -72,6 +72,7 @@
  * @method string executeAsync($javaScriptCode) Injects arbitrary JavaScript and wait for the callback (last element of arguments) to be called
  * @method void forward()
  * @method void frame($elementId) Changes the focus to a frame in the page
+ * @method void moveto(\PHPUnit_Extensions_Selenium2TestCase_Element $element) Move the mouse by an offset of the specificed element.
  * @method void refresh()
  * @method \PHPUnit_Extensions_Selenium2TestCase_Element_Select select($element)
  * @method string source() Returns the HTML source of the page
@@ -234,7 +235,6 @@ abstract class PHPUnit_Extensions_Selenium2TestCase extends PHPUnit_Framework_Te
         try {
             if (!$this->session) {
                 $this->session = $this->getStrategy()->session($this->parameters);
-                $this->url('');
             }
         } catch (PHPUnit_Extensions_Selenium2TestCase_NoSeleniumException $e) {
             $this->markTestSkipped("The Selenium Server is not active on host {$this->parameters['host']} at port {$this->parameters['port']}.");
@@ -472,6 +472,8 @@ abstract class PHPUnit_Extensions_Selenium2TestCase extends PHPUnit_Framework_Te
 
     /**
      * Sends a special key
+     * Deprecated due to issues with IE webdriver. Use keys() method instead
+     * @deprecated
      * @param string $name
      * @throws PHPUnit_Extensions_Selenium2TestCase_Exception
      * @see PHPUnit_Extensions_Selenium2TestCase_KeysHolder
